@@ -1,6 +1,33 @@
 How to structure a Flask app
 =================
 
+### This example app has the following structure
+
+<pre>
+flask-example
++-- Procfile (can be used to run locally and is used on Heroku)
++-- README.md
++-- appname (the actual application)
+|       +-- __init__.py
+|       +-- models.py
+|       +-- server.py
++-- config.py
++-- manage.py
++-- migrations (this app has a database)
+|        +-- README
+|        +-- alembic.ini
+|        +-- env.py
+|        +-- script.py.mako
+|        +-- versions
+|        |  +-- 32c89b1892d9_.py
++-- notforprod.db  (this is not in version control and is just a fallback db)
++-- requirements.txt
++-- run.py
++-- run.sh (this just calls foreman start)
+</pre>
+
+
+
 ### Use a package for the app
 
 This allows you to initialise the application in the __init__.py  of the appname package.
