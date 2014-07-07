@@ -1,29 +1,6 @@
 How to structure a Flask app
 =================
 
-The app in this repository is structured as follows:
-
-flask-examples
-├── Procfile
-├── README.md
-├── appname
-│   ├── __init__.py
-│   ├── models.py
-│   ├── notforprod.db
-│   └── server.py
-├── config.py
-├── manage.py
-├── migrations
-│   ├── README
-│   ├── alembic.ini
-│   ├── env.py
-│   ├── script.py.mako
-│   └── versions
-│       └── 32c89b1892d9_.py
-├── notforprod.db
-├── requirements.txt
-└── run.py
-
 ### Use a package for the app
 
 This allows you to initialise the application in the __init__.py  of the appname package.
@@ -58,24 +35,6 @@ web: gunicorn -k eventlet appname.server:app
 ```
 
 There may be a higher level script to run a number of services. In that case create a run.sh and add that to project run_all.sh
-
-For example:
-
-some-big-project
-├── run_all.sh <-- This calls run.sh on each project sub-directory
-├── flask-examples
-│   ├── Procfile
-│   ├── README.md
-        . blah
-        . blah
-        . blah
-        .
-│   └── run.sh <-- this probably just constains "foreman start -p 8001"
-│   └── run.py
-└── some-app
-    └── run.sh <-- this probably just constains "foreman start  -p 8002"
-
-
 
 ### Databases
 
