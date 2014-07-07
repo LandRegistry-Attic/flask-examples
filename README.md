@@ -46,7 +46,7 @@ export SETTINGS='config.Config'
 
 or on Heroku:
 
-Install [Heroku Toolbelt](https://toolbelt.heroku.com/) , then you can set what config to use as follows.
+Install [Heroku Toolbelt](https://toolbelt.heroku.com/) , then you can set the config to be used as follows.
 
 ```
 heroku config:set SETTINGS=config.HerokuConfig
@@ -65,9 +65,11 @@ There may be a higher level script to run a number of services. In that case cre
 
 ### Databases
 
-If the app connects to a database then we'll need a means to create and manage db schemas. The suggested approach would be to add Flask-Migrate to your and Flask-Script to the projects requirements.txt. Flask-Migrate will pull in Flask-SQLAlchemy and Alembic (manages the actual migration). Flask-Script provides a nice wrapper for constructing commands.
+If the app connects to a database then we'll need a means to create and manage db schemas. The suggested approach would be to add Flask-Migrate and Flask-Script to the project requirements.txt.
 
-This example project has a simple model in models.py.  Have a look at manage.py as well.
+Flask-Migrate will pull in Flask-SQLAlchemy and Alembic (which manages the actual migration). Flask-Script provides a nice wrapper for constructing commands.
+
+This example project has a simple model in models.py that will be the basis of generated migration files.  Have a look at manage.py as well which imports the models and is configured to use the migration commands. Note because you need to export a SETTINGS value, the commands can be run against different databases dependent on environment.
 
 On first installation (a one time operation), you would run
 
@@ -83,7 +85,7 @@ You can then run
 python manage.py db migrate
 ```
 
-That will dump a file into the versions directory in migrations. In manage.py script there's an import for all the models in models.py.
+That will dump a file into the versions directory in migrations. Remember, that in manage.py script there's an import for all the models in models.py. That's how the tool knows what models to create DDL for.
 
 The file created in versions contains the python code needed to create tables based upon your models.
 
@@ -100,14 +102,14 @@ def upgrade():
     )
 ```
 
-To apply the change to your local db, be that sqlite or postgres or whatever you've configured in base Config class, then run.
+To apply the change to your local db (be that sqlite or postgres or whatever you've configured in the Config class you have set your SETTINGS environment variable) then run.
 
 ```
 python manage.py db upgrade
 ```
 
 To run the migration on heroku you just need to have set the correct configuration class using heroku config:set as mentioned above. Push the repo to Heroku
-and then use
+and then use:
 
 ```
 heroku run ...
@@ -118,4 +120,4 @@ to run the commands as above.
 
 ### Frontend and static assets
 
-TODO
+Add GOV UK frontend toolkit as a git submodule.
