@@ -1,0 +1,16 @@
+Flask==0.10.1
+Flask-Migrate==1.2.0
+Flask-SQLAlchemy==1.0
+Flask-Script==2.0.5
+Jinja2==2.7.3
+Mako==1.0.0
+MarkupSafe==0.23
+SQLAlchemy==0.9.6
+Werkzeug==0.9.6
+alembic==0.6.5
+eventlet==0.14.0
+greenlet==0.4.2
+gunicorn==18.0
+itsdangerous==0.24
+pysqlite==2.6.3
+wsgiref==0.1.2
