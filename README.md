@@ -121,3 +121,11 @@ to run the commands as above.
 ### Frontend and static assets
 
 Add GOV UK frontend toolkit as a git submodule.
+
+If there is a front end to the application add static and templates directories.
+
+```
+git submodule add https://github.com/alphagov/govuk_frontend_toolkit.git ./static/govuk_toolkit
+```
+
+
