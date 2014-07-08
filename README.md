@@ -22,7 +22,6 @@ flask-example
 |        |  +-- 32c89b1892d9_.py
 +-- notforprod.db  (this is not in version control and is just a fallback db)
 +-- requirements.txt
-+-- run.py
 +-- run.sh (this just calls foreman start)
 </pre>
 
