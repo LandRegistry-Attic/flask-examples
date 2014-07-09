@@ -58,7 +58,7 @@ Anytime you want to activate the virtualenv from that point on, you just enter
 workon flask-example
 ```
 
-**Check the code out***
+**Check the code out**
 
 ```
 git clone git@github.com:LandRegistry/flask-examples.git
