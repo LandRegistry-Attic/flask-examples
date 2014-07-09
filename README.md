@@ -1,6 +1,12 @@
 How to structure a Flask app
 =================
 
+### Notes to self and others
+Tests? How about package called tests. Use pytest  and test_requirements.txt? [pytest](http://pytest.org/latest/contents.html)
+or python -m unittest discover?
+
+Don't know, discussion please.
+
 ### This example app has the following structure
 
 <pre>
