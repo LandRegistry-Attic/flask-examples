@@ -23,6 +23,7 @@ flask-example
 +-- notforprod.db  (this is not in version control and is just a fallback db if you want to mess around with something cheap and cheerful)
 +-- requirements.txt (requirements for this project)
 +-- run.sh (this just calls foreman start)
++-- run_dev.py (this is handy for local development as you get reload on file changes so you don't have to start/stop for changes)
 
 </pre>
 
