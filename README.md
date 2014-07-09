@@ -8,21 +8,22 @@ flask-example
 +-- Procfile (can be used to run locally and is used on Heroku)
 +-- README.md
 +-- appname (the actual application)
-|       +-- __init__.py
-|       +-- models.py
-|       +-- server.py
+|       +-- __init__.py  (do your application setup here)
+|       +-- models.py (you could if you like keep persitent domain classes here)
+|       +-- server.py (this is where your route decorators live. You don't have to call it server, but it's a good a name as any I reckon.)
 +-- config.py
 +-- manage.py (flask script commands)
-+-- migrations (this app has a database)
++-- migrations (this app has a database hence migration files are a fine idea)
 |        +-- README
 |        +-- alembic.ini
 |        +-- env.py
 |        +-- script.py.mako
 |        +-- versions
 |        |  +-- 32c89b1892d9_.py
-+-- notforprod.db  (this is not in version control and is just a fallback db)
++-- notforprod.db  (this is not in version control and is just a fallback db if you want to mess around with something cheap and cheerful)
 +-- requirements.txt (requirements for this project)
 +-- run.sh (this just calls foreman start)
+
 </pre>
 
 ### To get and play with the example code
