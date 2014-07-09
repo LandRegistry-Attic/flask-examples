@@ -8,24 +8,83 @@ flask-example
 +-- Procfile (can be used to run locally and is used on Heroku)
 +-- README.md
 +-- appname (the actual application)
-|       +-- __init__.py
-|       +-- models.py
-|       +-- server.py
+|       +-- __init__.py  (do your application setup here)
+|       +-- models.py (you could if you like keep persitent domain classes here)
+|       +-- server.py (this is where your route decorators live. You don't have to call it server, but it's a good a name as any I reckon.)
 +-- config.py
-+-- manage.py
-+-- migrations (this app has a database)
++-- manage.py (flask script commands)
++-- migrations (this app has a database hence migration files are a fine idea)
 |        +-- README
 |        +-- alembic.ini
 |        +-- env.py
 |        +-- script.py.mako
 |        +-- versions
 |        |  +-- 32c89b1892d9_.py
-+-- notforprod.db  (this is not in version control and is just a fallback db)
-+-- requirements.txt
++-- notforprod.db  (this is not in version control and is just a fallback db if you want to mess around with something cheap and cheerful)
++-- requirements.txt (requirements for this project)
 +-- run.sh (this just calls foreman start)
+
 </pre>
 
+### To get and play with the example code
 
+**Prerequisites**
+
+1. install [virtualenv](https://virtualenv.pypa.io/en/latest)
+
+2. install [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/)
+
+Note very important the part in virtualenvwrapper install intructions about sourcing the virtualenvwrapper.sh in your .bash_profile, .zshrc or whatever for the shell you use.
+
+On my machine I have the following in my .zshrc
+
+```
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+```
+
+So when I call ```mkvirtualenv some-name``` I get a some-name virtual environment directory in ~/.virtualenvs
+
+Now create a virtualenv for the flask-example project
+
+```
+mkvirtualenv flask-examples
+```
+
+This automatically activates the virtualenv. Once done any pip installs will install into that virtualenv.
+
+Anytime you want to activate the virtualenv from that point on, you just enter
+
+```
+workon flask-example
+```
+
+**Check the code out**
+
+```
+git clone git@github.com:LandRegistry/flask-examples.git
+cd flask-examples
+workon flask-examples
+pip install -r requirements.txt
+```
+
+## Some suggestions/patterns contained in the example app
+
+### A little bit of security
+
+This is a starter for ten for things to add to all responses
+```
+@app.after_request
+def after_request(response):
+    response.headers.add('Content-Security-Policy', "default-src 'self'")
+    response.headers.add('X-Frame-Options', 'deny')
+    response.headers.add('X-Content-Type-Options', 'nosniff')
+    response.headers.add('X-XSS-Protection', '1; mode=block')
+    return response
+```
+Have a look at [List of useful HTTP headers](https://www.owasp.org/index.php/List_of_useful_HTTP_headers)
+
+Any further suggestions welcome
 
 ### Use a package for the app
 
@@ -118,6 +177,8 @@ to run the commands as above.
 
 
 ### Frontend and static assets
+
+**TODO - Update when front end spike done please**
 
 Add GOV UK frontend toolkit as a git submodule.
 
