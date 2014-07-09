@@ -27,7 +27,8 @@ flask-example
 
 ### To get and play with the example code
 
-install [virtualenv](https://virtualenv.pypa.io/en/latest
+**Prerequisites**
+install [virtualenv](https://virtualenv.pypa.io/en/latest)
 install [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/)
 
 Note very important the part in virtualenvwrapper install intructions about sourcing the virtualenvwrapper.sh in your .bash_profile, .zshrc or whatever for the shell you use.
