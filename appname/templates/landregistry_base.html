@@ -1,5 +1,13 @@
 {% extends "govuk_template.html" %}
 
+{% block head %}
+
+  {% assets "css_main" %}
+    <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css">
+  {% endassets %}
+  
+{% endblock %}
+
 {% block content %}
 <p>hello</p>
 {% endblock %}
