@@ -8,7 +8,7 @@ assets = Environment(app)
 css_main = Bundle(
     'stylesheets/main.scss',
     filters='scss',
-    output='stylesheets/main.css',
+    output='build/main.css',
     depends="**/*.scss"
 )
 assets.register('css_main', css_main)
