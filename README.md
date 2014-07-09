@@ -12,7 +12,7 @@ flask-example
 |       +-- models.py
 |       +-- server.py
 +-- config.py
-+-- manage.py
++-- manage.py (flask script commands)
 +-- migrations (this app has a database)
 |        +-- README
 |        +-- alembic.ini
@@ -21,11 +21,50 @@ flask-example
 |        +-- versions
 |        |  +-- 32c89b1892d9_.py
 +-- notforprod.db  (this is not in version control and is just a fallback db)
-+-- requirements.txt
++-- requirements.txt (requirements for this project)
 +-- run.sh (this just calls foreman start)
 </pre>
 
+### To get and play with the example code
 
+install [virtualenv](https://virtualenv.pypa.io/en/latest
+install [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/)
+
+Note very important the part in virtualenvwrapper install intructions about sourcing the virtualenvwrapper.sh in your .bash_profile, .zshrc or whatever for the shell you use.
+
+On my machine I have the following in my .zshrc
+
+```
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+```
+
+So when I call ```mkvirtualenv some-name``` I get a some-name virtual environment directory in ~/.virtualenvs
+
+Now create a virtualenv for the flask-example project
+
+```
+mkvirtualenv flask-examples
+```
+
+This automatically activates the virtualenv. Once done any pip installs will install into that virtualenv.
+
+Anytime you want to activate the virtualenv from that point on, you just enter
+
+```
+workon flask-example
+```
+
+**Check the code out***
+
+```
+git clone git@github.com:LandRegistry/flask-examples.git
+cd flask-examples
+workon flask-examples
+pip install -r requirements.txt
+```
+
+## Some suggestions/patterns contained in the example app
 
 ### Use a package for the app
 
@@ -118,6 +157,8 @@ to run the commands as above.
 
 
 ### Frontend and static assets
+
+**TODO - Update when front end spike done please**
 
 Add GOV UK frontend toolkit as a git submodule.
 
