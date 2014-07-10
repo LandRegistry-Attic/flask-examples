@@ -20,7 +20,7 @@ def asset_path_context_processor():
 
 @app.route('/')
 def index():
-    return render_template("landregistry_base.html")
+    return render_template("index.html")
 
 #  Some useful headers to set to beef up the robustness of the app
 # https://www.owasp.org/index.php/List_of_useful_HTTP_headers
