@@ -75,7 +75,7 @@ workon flask-examples
 pip install -r requirements.txt
 ```
 
-**other requirments**
+**other requirements**
 
 sub module dependencies - gov uk toolkit
 
@@ -84,10 +84,23 @@ git submodule init
 git submodule update
 ```
 
-bundler dependency - css generation from sass
+bundler dependency - css generation from scss
 
 ```
-gem install saas
+gem install sass
+```
+
+
+
+**Run the app**
+
+```
+./run.sh # this runs with foreman
+```
+or
+
+```
+./run.sh dev # this runs the run_dev.py so reloading works
 ```
 
 
