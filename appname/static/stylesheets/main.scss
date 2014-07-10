@@ -1,5 +1,22 @@
-@import '../govuk_toolkit/stylesheets/_colours';
+// GOVUK Toolkit imports
+// ==========================================================================
 
-body {
-  color: $pink !important;
-}
+@import '../govuk_toolkit/stylesheets/_colours';
+@import '../govuk_toolkit/stylesheets/_conditionals';
+@import '../govuk_toolkit/stylesheets/_css3';
+@import '../govuk_toolkit/stylesheets/_device-pixels';
+@import '../govuk_toolkit/stylesheets/_font_stack';
+@import '../govuk_toolkit/stylesheets/_grid_layout';
+@import '../govuk_toolkit/stylesheets/_measurements';
+@import '../govuk_toolkit/stylesheets/_shims';
+@import '../govuk_toolkit/stylesheets/_typography';
+@import '../govuk_toolkit/stylesheets/_url-helpers';
+
+@import '../govuk_toolkit/stylesheets/design-patterns/_alpha-beta';
+@import '../govuk_toolkit/stylesheets/design-patterns/_buttons';
+
+// Land Registry elements imports
+// ==========================================================================
+
+@import '../landregistry_elements/_normalise';
+@import '../landregistry_elements/_layout';
