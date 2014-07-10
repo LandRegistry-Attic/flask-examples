@@ -75,6 +75,17 @@ workon flask-examples
 pip install -r requirements.txt
 ```
 
+**Run the app**
+
+```
+./run.sh # this runs with foreman
+```
+or
+
+```
+./run.sh dev # this runs the run_dev.py so reloading works
+```
+
 ## Some suggestions/patterns contained in the example app
 
 ### A little bit of security
