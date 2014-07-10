@@ -26,7 +26,7 @@ def index():
 # https://www.owasp.org/index.php/List_of_useful_HTTP_headers
 @app.after_request
 def after_request(response):
-    response.headers.add('Content-Security-Policy', "default-src 'self'")
+    response.headers.add('Content-Security-Policy', "default-src 'self' 'unsafe-inline' data:")
     response.headers.add('X-Frame-Options', 'deny')
     response.headers.add('X-Content-Type-Options', 'nosniff')
     response.headers.add('X-XSS-Protection', '1; mode=block')
