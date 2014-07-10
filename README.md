@@ -75,11 +75,28 @@ workon flask-examples
 pip install -r requirements.txt
 ```
 
+**other requirments**
+
+sub module dependencies - gov uk toolkit
+
+```
+git submodule init
+git submodule update
+```
+
+bundler dependency - css generation from sass
+
+```
+gem install saas
+```
+
+
 ## Some suggestions/patterns contained in the example app
 
 ### A little bit of security
 
 This is a starter for ten for things to add to all responses
+
 ```
 @app.after_request
 def after_request(response):
@@ -89,6 +106,7 @@ def after_request(response):
     response.headers.add('X-XSS-Protection', '1; mode=block')
     return response
 ```
+
 Have a look at [List of useful HTTP headers](https://www.owasp.org/index.php/List_of_useful_HTTP_headers)
 
 Any further suggestions welcome
@@ -194,5 +212,3 @@ If there is a front end to the application add static and templates directories.
 ```
 git submodule add https://github.com/alphagov/govuk_frontend_toolkit.git ./static/govuk_toolkit
 ```
-
-
