@@ -1,9 +1,23 @@
 {% extends "govuk_template.html" %}
 
+
 {% block head %}
 
   {% assets "css_main" %}
     <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css">
   {% endassets %}
+  
+{% endblock %}
+
+
+{% block header_class %}with-proposition{% endblock %}
+
+{% block proposition_header %}
+
+  <div class="header-proposition">
+    <div class="content">
+      <a href="/" id="proposition-name">Land Registry</a>
+    </div>
+  </div>
   
 {% endblock %}
