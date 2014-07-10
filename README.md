@@ -16,7 +16,9 @@ flask-example
 +-- appname (the actual application)
 |       +-- __init__.py  (do your application setup here)
 |       +-- models.py (you could if you like keep persitent domain classes here)
-|       +-- server.py (this is where your route decorators live. You don't have to call it server, but it's a good a name as any I reckon.)
+|       +-- server.py (this is where your route decorators live. You don't have to call it server, but it's a good a name
+|       +-- static (static assets folder)
+|       +-- templates (jinja templates)
 +-- config.py
 +-- manage.py (flask script commands)
 +-- migrations (this app has a database hence migration files are a fine idea)
@@ -216,12 +218,15 @@ to run the commands as above.
 
 ### Frontend and static assets
 
-**TODO - Update when front end spike done please**
-
-Add GOV UK frontend toolkit as a git submodule.
-
-If there is a front end to the application add static and templates directories.
+**Install the sass gem**
 
 ```
-git submodule add https://github.com/alphagov/govuk_frontend_toolkit.git ./static/govuk_toolkit
+gem install sass
+```
+
+GOV UK frontend toolkit is a git submodule in this project. After checking out:
+
+```
+git submodule init
+git submodule update
 ```
