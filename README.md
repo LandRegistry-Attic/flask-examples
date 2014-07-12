@@ -218,6 +218,9 @@ to run the commands as above.
 
 ### Frontend and static assets
 
+** Note there are some fun and games to be had using flask-assets, sass gems etc on heroku**
+Any ideas on good ways to handle this appreciated. At the moment you need to enable and configure multiple build packs.
+
 **Install the sass gem**
 
 ```
