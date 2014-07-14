@@ -218,6 +218,37 @@ to run the commands as above.
 
 ### Frontend and static assets
 
+#### Pre-compiled
+
+Compile the SASS locally with sass:
+
+    cd appname/static/stylesheets
+    sass main.scss main.css
+
+...and then check in the changed file.
+
+#### Asset pipeline
+
+Put the following bit of code in ```__init__.py```
+
+    from flask.ext.assets import Environment, Bundle
+    
+    # Static assets
+    assets = Environment(app)
+    css_main = Bundle(
+       'stylesheets/main.scss',
+        filters='scss',
+        output='build/main.css',
+        depends="**/*.scss"
+    )
+    assets.register('css_main', css_main)
+
+...and then in the templates, refer to ```css_main``` with:
+
+    {% assets "css_main" %}
+        <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css">
+    {% endassets %}
+
 ** Note there are some fun and games to be had using flask-assets, sass gems etc on heroku**
 Any ideas on good ways to handle this appreciated. At the moment you need to enable and configure multiple build packs.
 

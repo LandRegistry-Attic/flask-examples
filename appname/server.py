@@ -1,17 +1,7 @@
 from flask import render_template
 from appname import app, db
 from  models import Foo
-from flask.ext.assets import Environment, Bundle
-
-# Static assets
-assets = Environment(app)
-css_main = Bundle(
-    'stylesheets/main.scss',
-    filters='scss',
-    output='build/main.css',
-    depends="**/*.scss"
-)
-assets.register('css_main', css_main)
+from flask.ext.assets import Environment
 
 # govuk_template asset path
 @app.context_processor

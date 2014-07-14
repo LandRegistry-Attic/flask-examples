@@ -9,3 +9,5 @@ appname/static/.webassets-cache
 # to ensure that the dev directory is added to the .gitignore. If you want to use your own scripts then
 # simply check in your own dev directory and remove dev/ from the .gitignore
 dev/
+
+.sass-cache
