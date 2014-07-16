@@ -1,12 +1,11 @@
 from flask import render_template
-from appname import app, db
-from  models import Foo
-from flask.ext.assets import Environment
+from appname import app
 
-# govuk_template asset path
-@app.context_processor
-def asset_path_context_processor():
-    return {'asset_path': '/static/govuk_template/'}
+# If using db, do something like this:
+# from appname import db
+# from  models import Foo
+
+
 
 @app.route('/')
 def index():

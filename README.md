@@ -21,14 +21,13 @@ flask-example
 |       +-- templates (jinja templates)
 +-- config.py
 +-- manage.py (flask script commands)
-+-- migrations (this app has a database hence migration files are a fine idea)
++-- migrations (this app has a database hence migration files are a fine idea - this contains an example - delete if you are not using a db)
 |        +-- README
 |        +-- alembic.ini
 |        +-- env.py
 |        +-- script.py.mako
 |        +-- versions
 |        |  +-- 32c89b1892d9_.py
-+-- notforprod.db  (this is not in version control and is just a fallback db if you want to mess around with something cheap and cheerful)
 +-- requirements.txt (requirements for this project)
 +-- run.sh (this just calls foreman start)
 +-- run_dev.py (this is handy for local development as you get reload on file changes so you don't have to start/stop for changes)
@@ -93,7 +92,6 @@ gem install sass
 ```
 
 
-
 **Run the app**
 
 ```
@@ -147,7 +145,7 @@ or on Heroku:
 Install [Heroku Toolbelt](https://toolbelt.heroku.com/) , then you can set the config to be used as follows.
 
 ```
-heroku config:set SETTINGS=config.HerokuConfig
+heroku config:set SETTINGS=config.Config
 ```
 
 
@@ -156,12 +154,12 @@ heroku config:set SETTINGS=config.HerokuConfig
 The app should have a procfile Procfile which in this app looks like this:
 
 ```
-web: gunicorn -k eventlet appname.server:app
+web: gunicorn -b 0.0.0.0:$PORT -k eventlet appname.server:app
 ```
 
 There may be a higher level script to run a number of services. In that case create a run.sh and add that to project run_all.sh
 
-### Databases
+### Databases (NOTE: If you are not using a database - uninstall all the flask-sqlalchemy, flask-script stuff and delete the migrations directory - you will not need it!)
 
 If the app connects to a database then we'll need a means to create and manage db schemas. The suggested approach would be to add Flask-Migrate and Flask-Script to the project requirements.txt.
 
@@ -218,6 +216,12 @@ to run the commands as above.
 
 ### Frontend and static assets
 
+**Install the sass gem**
+
+```
+gem install sass
+```
+
 #### Pre-compiled
 
 Compile the SASS locally with sass:
@@ -226,37 +230,6 @@ Compile the SASS locally with sass:
     sass main.scss main.css
 
 ...and then check in the changed file.
-
-#### Asset pipeline
-
-Put the following bit of code in ```__init__.py```
-
-    from flask.ext.assets import Environment, Bundle
-    
-    # Static assets
-    assets = Environment(app)
-    css_main = Bundle(
-       'stylesheets/main.scss',
-        filters='scss',
-        output='build/main.css',
-        depends="**/*.scss"
-    )
-    assets.register('css_main', css_main)
-
-...and then in the templates, refer to ```css_main``` with:
-
-    {% assets "css_main" %}
-        <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css">
-    {% endassets %}
-
-** Note there are some fun and games to be had using flask-assets, sass gems etc on heroku**
-Any ideas on good ways to handle this appreciated. At the moment you need to enable and configure multiple build packs.
-
-**Install the sass gem**
-
-```
-gem install sass
-```
 
 GOV UK frontend toolkit is a git submodule in this project. After checking out:
 
